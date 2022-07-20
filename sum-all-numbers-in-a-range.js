@@ -9,7 +9,6 @@ sumAll([5, 10]) should return 45.
 sumAll([10, 5]) should return 45.
 */
 
-
 //s1
 function sumAll(arr) {
   let allSum = [];
@@ -23,4 +22,17 @@ function sumAll(arr) {
 
 console.log(sumAll([5, 10]));
 
+//s2
+function sumAll(arr) {
+  let arrMax = Math.max(arr[0], arr[1]);
+  let arrMin = Math.min(arr[0], arr[1]);
 
+  let allSum = 0;
+
+  for (let i = arrMin; i <= arrMax; i++) {
+    allSum += i;
+  }
+  return allSum;
+}
+
+console.log(sumAll([4, 1]));
