@@ -22,3 +22,11 @@ function destroyer(arr) {
 }
 
 console.log(destroyer([1, 2, 3, 1, 2, 3], 2, 3));
+
+//s2
+function destroyer(arr) {
+  const args = [...arguments].slice(1);
+  return arr.filter((x) => !args.includes(x));
+}
+
+console.log(destroyer([3, 5, 1, 2, 2], 2, 3, 5));
