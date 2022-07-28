@@ -16,6 +16,7 @@ truthCheck([{id: 1, data: {url: "https://freecodecamp.org", name: "freeCodeCamp"
 truthCheck([{id: 1, data: {url: "https://freecodecamp.org", name: "freeCodeCamp"}}, {id: 2, data: {url: "https://coderadio.freecodecamp.org/", name: "CodeRadio"}}, {id: null, data: {}}], "id") should return false.
 */
 
+//s1
 function truthCheck(collection, pre) {
   for (let i = 0; i < collection.length; i++) {
     if (!collection[i][pre]) {
@@ -35,3 +36,14 @@ console.log(
     "isBot"
   )
 );
+
+//s2
+function truthCheck(collection, pre) {
+  let allChecked = collection.map(obj => {
+    return obj.hasOwnProperty(pre) && Boolean(obj[pre]);
+  })
+
+  return allChecked.includes(false) ? false : true;
+}
+
+console.log(truthCheck([{name: "freeCodeCamp", users: [{name: "Quincy"}, {name: "Naomi"}]}, {name: "Code Radio", users: [{name: "Camperbot"}]}, {name: "", users: []}], "users"));
