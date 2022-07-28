@@ -39,11 +39,36 @@ console.log(
 
 //s2
 function truthCheck(collection, pre) {
-  let allChecked = collection.map(obj => {
+  let allChecked = collection.map((obj) => {
     return obj.hasOwnProperty(pre) && Boolean(obj[pre]);
-  })
+  });
 
   return allChecked.includes(false) ? false : true;
 }
 
-console.log(truthCheck([{name: "freeCodeCamp", users: [{name: "Quincy"}, {name: "Naomi"}]}, {name: "Code Radio", users: [{name: "Camperbot"}]}, {name: "", users: []}], "users"));
+console.log(
+  truthCheck(
+    [
+      { name: "freeCodeCamp", users: [{ name: "Quincy" }, { name: "Naomi" }] },
+      { name: "Code Radio", users: [{ name: "Camperbot" }] },
+      { name: "", users: [] },
+    ],
+    "users"
+  )
+);
+
+//s3
+function truthCheck(collection, pre) {
+  return collection.every((obj) => obj[pre]);
+}
+
+console.log(
+  truthCheck(
+    [
+      { name: "Quincy", username: "QuincyLarson" },
+      { name: "Naomi", username: "nhcarrigan" },
+      { name: "Camperbot" },
+    ],
+    "username"
+  )
+);
